@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 
 class Square extends Component{
 
-handleclick = () => {
-  this.props.handleGamePlay(this.props.index)
-}
 
+  handleClick = () => {
+    this.props.handleGamePlay(this.props.index)
+  }
 
 
 
@@ -13,7 +13,7 @@ handleclick = () => {
     return(
       <>
         <div className="square"
-        onClick= {this.handleclick}>{this.props.value}</div>
+        onClick= {this.handleClick}>{this.props.value}</div>
       </>
     )
   }
