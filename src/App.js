@@ -8,8 +8,12 @@ class App extends Component{
     this.state = {
       squares: [ "", "", "" , "", "", "", "", "", ""],
       currentValue: '',
+      Xwin: "XXX",
+      Owin: "OOO",
     }
   }
+
+
 
 handleGamePlay = (index) => {
 const { squares, currentValue } = this.state
@@ -27,7 +31,14 @@ if (squares[index] !== '') {
 }
 }
 
-
+const checkForWinner = (squares) => {
+  let {squares, Xwin, Owin} = this.state
+  let combos= 
+  let xwinner =
+   if (Xwin === squares[0] + squares[1] + squares [2])   
+    
+  }
+}
 
 
 
