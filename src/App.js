@@ -8,12 +8,24 @@ class App extends Component{
     this.state = {
       squares: [ "", "", "" , "", "", "", "", "", ""],
       currentValue: '',
-      Xwin: "XXX",
-      Owin: "OOO",
     }
   }
 
+  checkForWinner = () => {
+    let {squares} = this.state
 
+    let combos = (squares[0] + squares[1] + squares[2]) || (squares[3] + squares[4] + squares[5]) || (squares[6] + squares[7] + squares[8]) || (squares[0] + squares[3] + squares[6]) || (squares[1] + squares[4] + squares[7]) || (squares[2] + squares[5] + squares[8]) || (squares[0] + squares[4] + squares[8]) || (squares[2] + squares[4] + squares[6])
+
+    console.log(combos);
+
+    if (combos === 'XXX')  {
+      alert('Xs Win!');
+    }
+
+    if (combos === 'OOO') {
+      alert('Os Win!');
+    }
+  }
 
 handleGamePlay = (index) => {
 const { squares, currentValue } = this.state
@@ -31,25 +43,15 @@ if (squares[index] !== '') {
 }
 }
 
-const checkForWinner = (squares) => {
-  let {squares, Xwin, Owin} = this.state
-  let combos= 
-  let xwinner =
-   if (Xwin === squares[0] + squares[1] + squares [2])   
-    
-  }
-}
-
-
-
   render(){
 
     return(
       <>
 
         <h1>Tic Tac Toe</h1>
-        <div className= "gameboard">
-          {this.state.squares.map((value,index ) => {
+        <div className='gameboard'>
+
+          {this.state.squares.map((value,index) => {
             return (
               <Square
                value={value}
@@ -57,6 +59,7 @@ const checkForWinner = (squares) => {
                index={index}
                handleGamePlay={this.handleGamePlay}
                handleClick={this.handleClick}
+               checkForWinner={this.checkForWinner}
                />
 
             )
